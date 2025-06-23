@@ -31,7 +31,7 @@ class WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Weather App')),
+      appBar: AppBar(title: const Text('Spend Tracker')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
