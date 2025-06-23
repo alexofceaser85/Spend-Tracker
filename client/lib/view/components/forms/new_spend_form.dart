@@ -13,6 +13,7 @@ class NewSpendFormState extends State<NewSpendForm> {
   late TextEditingController locationController;
   late TextEditingController dateController;
   late TextEditingController amountController;
+  late TextEditingController notesController;
   String? selectedCategory;
   String? selectedRecurring;
 
@@ -43,6 +44,7 @@ class NewSpendFormState extends State<NewSpendForm> {
     locationController = TextEditingController();
     amountController = TextEditingController();
     dateController = TextEditingController();
+    notesController = TextEditingController();
     dateController.text = DateFormat('yyyy-MM-dd').format(DateTime.now());
   }
 
@@ -141,6 +143,19 @@ class NewSpendFormState extends State<NewSpendForm> {
             onChanged: ((value) {
               selectedRecurring = value;
             }),
+            validator: (value) => value == null || value == "" ? 'Required' : null,
+          ),
+          TextFormField(
+            maxLines: 3,
+            minLines: 1, 
+            controller: notesController,
+            decoration: const InputDecoration(
+              labelText: 'Notes',
+              helperText: '',
+              errorStyle: TextStyle(height: 0, fontSize: 14),
+              errorMaxLines: 1,
+            ),
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             validator: (value) => value == null || value == "" ? 'Required' : null,
           ),
           const SizedBox(height: 10),
